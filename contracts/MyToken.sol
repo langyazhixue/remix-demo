@@ -9,4 +9,7 @@ contract MyToken is ERC20, ERC20Permit {
     function mint(address to, uint256 value) external  {
         _mint(to, value);
     }
+    function burn(uint256 value) external  {
+        _burn(msg.sender, value);
+    }
 }
