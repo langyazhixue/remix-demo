@@ -1,0 +1,76 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "sendViaCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "sendViaTransfer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BASE/code/7.addressDemo.sol": "TransferExample"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BASE/code/7.addressDemo.sol": {
+			"keccak256": "0xa3ecc2cc67d2b02df5a2c799cabebf68c646eed0a9bec8e0215e20b5db725ff3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bf5b7a8b319a6f2b07938e9b30aecb7c5235c88ce379e9fbfe0cd31aadceba8e",
+				"dweb:/ipfs/QmXXiwXZPm81Q2SYvXxoGJf6Li6zmySfFJe4wNbzPKLWNk"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,15 +1,17 @@
-// SPDX-License-Identifier: MIT; 
-pragma solidity >=0.7.0<0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract AddressDemo{
-    address public test;
-    address public owner;
-    address public contractAddress;
-    constructor() {
-        owner = msg.sender;
-        contractAddress = address(this);
+contract TransferExample {
+    // 使用 transfer()
+    function sendViaTransfer(address payable _to) public payable {
+        _to.transfer(msg.value);
     }
-    function getBalance(address _address) public view returns(uint) {
-        return _address.balance;
+    // 使用 call() - 推荐方式
+    function sendViaCall(address payable _to) public payable {
+        (bool sent, ) = _to.call{value: msg.value}("");
+        require(sent, "Failed to send Ether");
     }
+    
+    // 接收以太币的函数
+    receive() external payable {}
 }
