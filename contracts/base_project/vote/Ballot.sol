@@ -11,6 +11,7 @@ contract Ballot {
         address delegate; //委托人地址
         uint256 vote; // 主题id
     }
+    event votes(Voter);
     // 创建主题结构体
     struct Proposal {
         string name; // 主题名称
@@ -35,7 +36,7 @@ contract Ballot {
             proposals.push(proposalItem);
         }
     }
-    
+
     // 返回主题集合
     function proposalList() public view returns (Proposal[] memory) {
         return proposals;
@@ -47,6 +48,15 @@ contract Ballot {
         require(msg.sender == chairperson, "only ower can give right");
         for (uint256 i = 0; i < voteAddressList.length; i++) {
             // 如果该地址已经投过票 不处理，未投过票 赋予权
+            emit votes(voters[voteAddressList[i]]);
+            if (voters[voteAddressList[i]].weight == 0 && !voters[voteAddressList[i]].voted && voters[voteAddressList[i]].delegate == address(0) && voters[voteAddressList[i]].vote == 0) {
+                voters[voteAddressList[i]] = Voter({
+                    weight: 0,
+                    voted: false,
+                    delegate: address(0),
+                    vote: 0
+                });
+            }
             if (!voters[voteAddressList[i]].voted) {
                 voters[voteAddressList[i]].weight = 1;
             }
@@ -107,4 +117,8 @@ contract Ballot {
 // 主持人 0x6975476f2ee985D9D04a180ce090651BaB645a5C
 // 投票人 ['0x667D0F43494b6B4fDd3527F0dF3eC565F0727acF','0x92e2aE86d117F67c85d019d2718C9EBEac766093','0x71B75978708057e6D238A8FEBFD4680a48a52F5e']
 // 候选人 ['张三','李四','王五']
-// contractAddress: 0x76fF2799f29a3687f7058d673d5F455625AEce51
+// contractAddress: 0xaa6F99AF642429986255841C127EdBDBBAbD9448
+// 第一步，合约部署，部署时候传入 ['张三','李四','王五']proposalNames 主题地址
+// 第二步，主持人执行 getRightToVote, 初始化投票人地址 3个。。。
+// 第三步，张三投票给0
+// 第四步，李四授权王五投票，王五投票给
