@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/interfaces/IERC1363.sol";
-// import {IERC1363Receiver} from  "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
+ import {IERC1363Receiver} from  "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 // import "@openzeppelin/contracts/interfaces/IERC1363Receiver.sol";
 
@@ -15,6 +15,9 @@ contract MyToken is ERC20, IERC1363 {
         _mint(msg.sender, initialSupply);
     }
 
+     function transferAndCall(address to, uint256 value) external override pure returns (bool) {
+        return true;
+    }
     // 实现 transferAndCall
     function transferAndCall(address to, uint256 value, bytes calldata data) external override returns (bool) {
         transfer(to, value); // 执行 ERC-20 转账
@@ -24,7 +27,7 @@ contract MyToken is ERC20, IERC1363 {
 
     // 内部函数：触发接收合约的回调
     function _checkAndCallTransfer(address from, address to, uint256 value, bytes memory data) internal returns (bool) {
-        if (to.isContract()) {
+        if (to.code.length > 0) {
             // 调用接收合约的 onTransferReceived
             try IERC1363Receiver(to).onTransferReceived(msg.sender, from, value, data) returns (bytes4 retval) {
                 return retval == IERC1363Receiver.onTransferReceived.selector;
@@ -35,5 +38,24 @@ contract MyToken is ERC20, IERC1363 {
         return true;
     }
 
+    function transferFromAndCall(address from, address to, uint256 value) external override pure returns (bool) {
+        return true;
+    }
+
+    function transferFromAndCall(address from, address to, uint256 value, bytes calldata data) override pure external returns (bool) {
+        return true;
+    }
+
+    function approveAndCall(address spender, uint256 value) external  pure override returns (bool) {
+        return true;
+    }
+
+    function approveAndCall(address spender, uint256 value, bytes calldata data) override pure external returns (bool) {
+        return true;
+    }
+
+    function supportsInterface(bytes4 interfaceId) external override pure returns (bool) {
+        return true;
+    }
     // 省略其他必要函数（transferFromAndCall, approveAndCall 等）
 }
