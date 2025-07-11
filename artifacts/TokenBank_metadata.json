@@ -1,0 +1,144 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onTransferReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"onTransferReceived(address,address,uint256,bytes)": {
+					"details": "Whenever ERC-1363 tokens are transferred to this contract via `transferAndCall` or `transferFromAndCall` by `operator` from `from`, this function is called. NOTE: To accept the transfer, this must return `bytes4(keccak256(\"onTransferReceived(address,address,uint256,bytes)\"))` (i.e. 0x88a7ca5c, or its own function selector).",
+					"params": {
+						"data": "Additional data with no specified format.",
+						"from": "The address which the tokens are transferred from.",
+						"operator": "The address which called `transferAndCall` or `transferFromAndCall` function.",
+						"value": "The amount of tokens transferred."
+					},
+					"returns": {
+						"_0": "`bytes4(keccak256(\"onTransferReceived(address,address,uint256,bytes)\"))` if transfer is allowed unless throwing."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ERC20_Demo/ERC1363/erc1363_tokenReceiver_demo.sol": "TokenBank"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/IERC1363Receiver.sol": {
+			"keccak256": "0xc988322f9ed15c95b435e5fbb51767b0bd8c19a4a57ca360af409122cede64c1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://baf96a3317c8b2d14dd805833efca40c9a38cbf4e2a9c375d88f98b2f1ea5232",
+				"dweb:/ipfs/QmTKbzuQBM62yERCNWtfoEK12cFj4sQcEFLLN64h6kEmXn"
+			]
+		},
+		"contracts/ERC20_Demo/ERC1363/erc1363_tokenReceiver_demo.sol": {
+			"keccak256": "0x2191ee1d194b85f090c27d61310c5023d71a686ec49eb92abf78936fa75d34ac",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9cd856707fb76867e0fe4484592155be3bf531aff3aa60894d2a3a5f765ba654",
+				"dweb:/ipfs/QmbkPB5X7iS3WbpxZcQTzPeuQDxSjUU857pgchFjq2Egwk"
+			]
+		}
+	},
+	"version": 1
+}
