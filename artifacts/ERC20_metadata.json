@@ -9,23 +9,13 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_name",
+						"name": "name_",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "_symbol",
+						"name": "symbol_",
 						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_decimals",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_totalSupply",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -49,7 +39,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -74,7 +64,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -157,13 +147,7 @@
 					}
 				],
 				"name": "burn",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -189,13 +173,7 @@
 					}
 				],
 				"name": "mint",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -207,19 +185,6 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -306,8 +271,31 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"details": "释放条件：当 `value` 单位的货币从账户 (`owner`) 授权给另一账户 (`spender`)时."
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "释放条件：当 `value` 单位的货币从账户 (`from`) 转账到另一账户 (`to`)时."
+				}
+			},
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"approve(address,uint256)": {
+					"details": "调用者账户给`spender`账户授权 `amount`数量代币。 如果成功，返回 `true`. 释放 {Approval} 事件."
+				}
+			},
+			"stateVariables": {
+				"allowance": {
+					"details": "返回`owner`账户授权给`spender`账户的额度，默认为0。 当{approve} 或 {transferFrom} 被调用时，`allowance`会改变."
+				},
+				"balanceOf": {
+					"details": "返回账户`account`所持有的代币数."
+				},
+				"totalSupply": {
+					"details": "返回代币总供给."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -318,7 +306,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ERC20_Demo/ERC20_1/erc20_solidity.sol": "ERC20"
+			"contracts/WTF_ethers/15_MultiTransfer/Airdrop.sol": "ERC20"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -332,12 +320,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/ERC20_Demo/ERC20_1/erc20_solidity.sol": {
-			"keccak256": "0x5225ea7896312fe19e4b36a932a963495971a052981fa4c25a26e272ecc60f45",
+		"contracts/WTF_ethers/15_MultiTransfer/Airdrop.sol": {
+			"keccak256": "0x89d0c685f8dfd139eae30a98fa8ea0934171ba2ca9238ef35d635c5f3d46d35e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://892c5472ebf77b054ecceb66ed3d728cbfaa7d15de47455b6b6c3b1060dbfe30",
-				"dweb:/ipfs/Qmc9JwMUhDotdULeK1ThKZUCq2Jsui8DSicvjsbXqJweph"
+				"bzz-raw://83f5bf6412035d9f6301deb4a1e43c9505b8530cf163dc7cc2aa446465ecb107",
+				"dweb:/ipfs/QmRTFLG6F1yCScofQ5k4pCxt6243XD7asJPp4De7AsJEgg"
+			]
+		},
+		"contracts/WTF_ethers/15_MultiTransfer/IERC20.sol": {
+			"keccak256": "0x7fb2b0291b9aa91dad67b1e2df28db896882d0b137277600f1a2bb989bcc9698",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8492c994518b65bdfdee39bc983077fb6bedc1e69bc93a561a05f9025b69a39b",
+				"dweb:/ipfs/QmdLcX3jtiU6M4zDTpy9q6zBh4Uqn6BX33MRsV91cieb61"
 			]
 		}
 	},
