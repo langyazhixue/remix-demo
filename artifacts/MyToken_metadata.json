@@ -539,7 +539,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Ddfi_lpl/valut/usdt.sol": "MyToken"
+			"contracts/Ddfi_lpl/01CPAMM/usdt.sol": "MyToken"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -601,7 +601,7 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/Ddfi_lpl/valut/usdt.sol": {
+		"contracts/Ddfi_lpl/01CPAMM/usdt.sol": {
 			"keccak256": "0xba29699da108aa3dca60a6b7b73efae61fa3463e4da3faa48bac6b6f9ed49846",
 			"license": "MIT",
 			"urls": [
